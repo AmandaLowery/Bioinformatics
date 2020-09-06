@@ -1,0 +1,19 @@
+# Given: Positive integers n≤40 and k≤5.
+
+# Return: The total number of rabbit pairs that will be present after n months, if we begin with 1 pair and in each generation
+# every pair of reproduction-age rabbits produces a litter of k rabbit pairs (instead of only 1 pair).
+
+def fib(n, k):
+    parent, child = 1, 1
+    if n < 1:
+        raise ValueError("Enter a positive integer.")
+    elif n == 1:
+        return (n)
+    elif n >= 40:
+        raise ValueError("Integer must be less than 40.")
+    else:
+        for n in range(n -1):
+            parent, child = parent + (child * k), parent
+        return child
+
+print(fib(34, 5))
